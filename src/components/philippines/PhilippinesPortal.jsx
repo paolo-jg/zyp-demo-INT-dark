@@ -274,9 +274,9 @@ function PhilippinesPortal({
       case 'payroll':
       case 'hr': {
         const moduleInfo = {
-          tax: { label: 'Tax Documents', iconBg: 'bg-blue-100', iconColor: 'text-blue-600', badgeBg: 'bg-blue-100', badgeText: 'text-blue-700', dot: 'bg-blue-500' },
-          payroll: { label: 'Payroll', iconBg: 'bg-violet-100', iconColor: 'text-violet-600', badgeBg: 'bg-violet-100', badgeText: 'text-violet-700', dot: 'bg-violet-500' },
-          hr: { label: 'HR Management', iconBg: 'bg-rose-100', iconColor: 'text-rose-600', badgeBg: 'bg-rose-100', badgeText: 'text-rose-700', dot: 'bg-rose-500' },
+          tax: { label: 'Tax Documents', iconBg: 'bg-blue-900/40', iconColor: 'text-blue-400', badgeBg: 'bg-blue-900/40', badgeText: 'text-blue-400', dot: 'bg-blue-500' },
+          payroll: { label: 'Payroll', iconBg: 'bg-violet-900/40', iconColor: 'text-violet-400', badgeBg: 'bg-violet-900/40', badgeText: 'text-violet-400', dot: 'bg-violet-500' },
+          hr: { label: 'HR Management', iconBg: 'bg-rose-900/40', iconColor: 'text-rose-400', badgeBg: 'bg-rose-900/40', badgeText: 'text-rose-400', dot: 'bg-rose-500' },
         };
         const info = moduleInfo[activeModule] || moduleInfo.contracts;
         return (
@@ -334,12 +334,12 @@ function PhilippinesPortal({
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-6 md:mb-8">
         <div
           onClick={() => { setActiveModule('payments'); setPaymentSubView('payments'); }}
-          className="bg-[#0d0d0d] border border-[#1a1a1a] rounded-lg p-5 border-l-4 border-l-emerald-500 cursor-pointer hover:bg-emerald-900/20 transition-colors"
+          className="bg-[#161616] border border-[#252525] rounded-lg p-5 border-l-4 border-l-emerald-500 cursor-pointer hover:bg-emerald-900/20 transition-colors"
         >
           <div className="flex items-center justify-between mb-3">
             <span className="text-gray-400 text-sm">Payments Received</span>
-            <div className="w-8 h-8 bg-emerald-100 rounded-lg flex items-center justify-center">
-              <ArrowDownLeft className="w-4 h-4 text-emerald-600" />
+            <div className="w-8 h-8 bg-emerald-900/40 rounded-lg flex items-center justify-center">
+              <ArrowDownLeft className="w-4 h-4 text-emerald-400" />
             </div>
           </div>
           <p className="text-xl sm:text-2xl font-semibold text-white">{formatCurrency(totalReceived)}</p>
@@ -348,12 +348,12 @@ function PhilippinesPortal({
 
         <div
           onClick={() => { setActiveModule('payments'); setPaymentSubView('invoices'); }}
-          className="bg-[#0d0d0d] border border-[#1a1a1a] rounded-lg p-5 border-l-4 border-l-amber-500 cursor-pointer hover:bg-amber-900/20 transition-colors"
+          className="bg-[#161616] border border-[#252525] rounded-lg p-5 border-l-4 border-l-amber-500 cursor-pointer hover:bg-amber-900/20 transition-colors"
         >
           <div className="flex items-center justify-between mb-3">
             <span className="text-gray-400 text-sm">Accounts Receivable</span>
-            <div className="w-8 h-8 bg-amber-100 rounded-lg flex items-center justify-center">
-              <Clock className="w-4 h-4 text-amber-600" />
+            <div className="w-8 h-8 bg-amber-900/40 rounded-lg flex items-center justify-center">
+              <Clock className="w-4 h-4 text-amber-400" />
             </div>
           </div>
           <p className="text-xl sm:text-2xl font-semibold text-white">{formatCurrency(pendingAmount)}</p>
@@ -362,12 +362,12 @@ function PhilippinesPortal({
 
         <div
           onClick={() => setActiveModule('clients')}
-          className="bg-[#0d0d0d] border border-[#1a1a1a] rounded-lg p-5 border-l-4 border-l-blue-500 cursor-pointer hover:bg-blue-900/20 transition-colors"
+          className="bg-[#161616] border border-[#252525] rounded-lg p-5 border-l-4 border-l-blue-500 cursor-pointer hover:bg-blue-900/20 transition-colors"
         >
           <div className="flex items-center justify-between mb-3">
             <span className="text-gray-400 text-sm">Clients</span>
-            <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
-              <Users className="w-4 h-4 text-blue-600" />
+            <div className="w-8 h-8 bg-blue-900/40 rounded-lg flex items-center justify-center">
+              <Users className="w-4 h-4 text-blue-400" />
             </div>
           </div>
           <p className="text-xl sm:text-2xl font-semibold text-white">{activeClients.length}</p>
@@ -378,8 +378,8 @@ function PhilippinesPortal({
       {/* Payments + Invoices side by side */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
         {/* Recent Payments */}
-        <div className="bg-[#0d0d0d] border border-[#1a1a1a] rounded-lg">
-          <div className="flex items-center justify-between p-4 border-b border-[#1a1a1a]">
+        <div className="bg-[#161616] border border-[#252525] rounded-lg">
+          <div className="flex items-center justify-between p-4 border-b border-[#252525]">
             <h2 className="font-medium text-sm">Recent Payments</h2>
             <button
               onClick={() => { setActiveModule('payments'); setPaymentSubView('payments'); }}
@@ -395,9 +395,9 @@ function PhilippinesPortal({
               <p className="text-xs text-gray-400 mt-1">Payments from your clients will appear here</p>
             </div>
           ) : (
-            <div className="divide-y divide-[#1a1a1a]">
+            <div className="divide-y divide-[#252525]">
               {transactions?.slice(0, 3).map((txn) => (
-                <div key={txn.id} className="flex items-center justify-between p-3 hover:bg-[#111111] transition-colors">
+                <div key={txn.id} className="flex items-center justify-between p-3 hover:bg-[#1e1e1e] transition-colors">
                   <div>
                     <p className="text-sm font-medium">{txn.recipient}</p>
                     <p className="text-xs text-gray-400">{txn.date}</p>
@@ -413,8 +413,8 @@ function PhilippinesPortal({
         </div>
 
         {/* Pending Invoices */}
-        <div className="bg-[#0d0d0d] border border-[#1a1a1a] rounded-lg">
-          <div className="flex items-center justify-between p-4 border-b border-[#1a1a1a]">
+        <div className="bg-[#161616] border border-[#252525] rounded-lg">
+          <div className="flex items-center justify-between p-4 border-b border-[#252525]">
             <h2 className="font-medium text-sm">Pending Invoices</h2>
             <button
               onClick={() => { setActiveModule('payments'); setPaymentSubView('invoices'); }}
@@ -430,9 +430,9 @@ function PhilippinesPortal({
               <p className="text-xs text-gray-400 mt-1">No pending invoices right now</p>
             </div>
           ) : (
-            <div className="divide-y divide-[#1a1a1a]">
+            <div className="divide-y divide-[#252525]">
               {pendingInvoices.slice(0, 3).map((inv) => (
-                <div key={inv.invoiceNumber} className="flex items-center justify-between p-3 hover:bg-[#111111] transition-colors">
+                <div key={inv.invoiceNumber} className="flex items-center justify-between p-3 hover:bg-[#1e1e1e] transition-colors">
                   <div>
                     <p className="text-sm font-medium">{inv.invoiceNumber}</p>
                     <p className="text-xs text-gray-400">{inv.businessName}</p>
@@ -449,8 +449,8 @@ function PhilippinesPortal({
       </div>
 
       {/* Upcoming Events */}
-      <div className="bg-[#0d0d0d] border border-[#1a1a1a] rounded-lg">
-        <div className="flex items-center justify-between px-5 py-4 border-b border-[#1a1a1a]">
+      <div className="bg-[#161616] border border-[#252525] rounded-lg">
+        <div className="flex items-center justify-between px-5 py-4 border-b border-[#252525]">
           <div className="flex items-center gap-2">
             <Calendar className="w-4 h-4 text-gray-500" />
             <h2 className="font-medium text-sm">Upcoming Events</h2>
@@ -462,7 +462,7 @@ function PhilippinesPortal({
             <p className="text-sm">No upcoming events</p>
           </div>
         ) : (
-          <div className="divide-y divide-[#1a1a1a]">
+          <div className="divide-y divide-[#252525]">
             {upcomingEvents.map((event) => {
               const parsed = new Date(event.date);
               const day = parsed.getDate();
@@ -470,7 +470,7 @@ function PhilippinesPortal({
               const colorMap = { invoice: 'bg-amber-500', payment: 'bg-emerald-500', contract: 'bg-violet-500', review: 'bg-blue-500' };
               const dotColor = colorMap[event.type] || 'bg-gray-400';
               return (
-                <div key={event.id} className="flex items-center gap-4 px-5 py-3.5 hover:bg-[#111111] transition-colors">
+                <div key={event.id} className="flex items-center gap-4 px-5 py-3.5 hover:bg-[#1e1e1e] transition-colors">
                   <div className="flex flex-col items-center w-10 flex-shrink-0">
                     <span className="text-[10px] font-medium text-gray-500 uppercase leading-none">{month}</span>
                     <span className="text-lg font-semibold text-white leading-tight">{day}</span>
@@ -497,7 +497,7 @@ function PhilippinesPortal({
     <div className="min-h-screen bg-black text-white">
       <div className="flex">
         {/* Mobile Header */}
-        <div className="fixed top-0 left-0 right-0 h-14 bg-[#0d0d0d] border-b border-[#1a1a1a] flex items-center justify-between px-4 z-40 md:hidden">
+        <div className="fixed top-0 left-0 right-0 h-14 bg-[#161616] border-b border-[#252525] flex items-center justify-between px-4 z-40 md:hidden">
           <button
             onClick={() => setMobileMenuOpen(true)}
             className="p-2 -ml-2 text-gray-300 hover:text-white"
@@ -523,7 +523,7 @@ function PhilippinesPortal({
 
         {/* Collapsible Sidebar */}
         <aside
-          className={`fixed left-0 top-0 bottom-0 bg-[#0d0d0d] border-r border-[#1a1a1a] flex flex-col z-50 ${hasMounted ? 'transition-all duration-300 ease-in-out' : ''}
+          className={`fixed left-0 top-0 bottom-0 bg-[#161616] border-r border-[#252525] flex flex-col z-50 ${hasMounted ? 'transition-all duration-300 ease-in-out' : ''}
             ${mobileMenuOpen ? 'translate-x-0 w-64' : '-translate-x-full w-64'}
             md:translate-x-0 ${isCollapsed ? 'md:w-[72px]' : 'md:w-64'}`}
           onMouseEnter={() => setSidebarHovered(true)}
@@ -540,10 +540,10 @@ function PhilippinesPortal({
           </div>
 
           {/* Company Header */}
-          <div className={`border-b border-[#1a1a1a] ${isCollapsed ? 'p-3' : 'p-4'}`}>
+          <div className={`border-b border-[#252525] ${isCollapsed ? 'p-3' : 'p-4'}`}>
             <div className={`flex items-center ${isCollapsed ? 'justify-center' : 'gap-3'}`}>
               <div
-                className={`rounded-lg bg-[#1a1a1a] border border-[#1a1a1a] flex items-center justify-center overflow-hidden flex-shrink-0 ${
+                className={`rounded-lg bg-[#1c1c1c] border border-[#252525] flex items-center justify-center overflow-hidden flex-shrink-0 ${
                   isCollapsed ? 'w-11 h-11' : 'w-10 h-10'
                 }`}
                 title={userData?.business_name || 'Your Business'}
@@ -680,10 +680,10 @@ function PhilippinesPortal({
           </nav>
 
           {/* User */}
-          <div className={`border-t border-[#1a1a1a] ${isCollapsed ? 'p-2' : 'p-4'}`}>
+          <div className={`border-t border-[#252525] ${isCollapsed ? 'p-2' : 'p-4'}`}>
             <div className={`flex items-center ${isCollapsed ? 'justify-center' : 'justify-between'}`}>
               <div className={`flex items-center ${isCollapsed ? '' : 'gap-3'}`}>
-                <div className={`rounded-full bg-[#1a1a1a] flex items-center justify-center ${isCollapsed ? 'w-10 h-10' : 'w-8 h-8'}`}>
+                <div className={`rounded-full bg-[#1c1c1c] flex items-center justify-center ${isCollapsed ? 'w-10 h-10' : 'w-8 h-8'}`}>
                   <span className="text-sm font-medium text-gray-400">{user?.email?.charAt(0).toUpperCase()}</span>
                 </div>
                 {!isCollapsed && (
