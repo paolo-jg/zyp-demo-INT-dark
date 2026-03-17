@@ -1,0 +1,41 @@
+{
+  "name": "zyp-dashboard",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint . --ext js,jsx --fix",
+    "format": "prettier --write \"src/**/*.{js,jsx,css,json}\"",
+    "format:check": "prettier --check \"src/**/*.{js,jsx,css,json}\""
+  },
+  "dependencies": {
+    "@sentry/react": "^8.0.0",
+    "@supabase/supabase-js": "^2.39.0",
+    "lucide-react": "^0.263.1",
+    "pdfjs-dist": "^3.11.174",
+    "persona": "^4.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-plaid-link": "^3.5.0",
+    "react-router-dom": "^6.20.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@vitejs/plugin-react": "^4.0.0",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^9.0.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.0",
+    "globals": "^15.0.0",
+    "postcss": "^8.4.24",
+    "prettier": "^3.2.0",
+    "tailwindcss": "^3.3.2",
+    "vite": "^4.3.9"
+  }
+}

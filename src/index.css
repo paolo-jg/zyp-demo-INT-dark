@@ -1,0 +1,270 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Disable text selection across the entire demo */
+*, *::before, *::after {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Allow selection inside input/textarea so users can still edit fields */
+input, textarea, [contenteditable="true"] {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+/* Smooth scrolling & lock overscroll */
+html, body {
+  scroll-behavior: smooth;
+  overscroll-behavior: none;
+}
+
+html {
+  overflow: hidden;
+  height: 100%;
+}
+
+body {
+  overflow: auto;
+  height: 100%;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0d0d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #262626;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #333333;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #4b5563;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* Hide number input spinner buttons */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0 !important;
+  display: none !important;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield !important;
+  appearance: textfield !important;
+}
+
+/* Checkbox */
+input[type="checkbox"] {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+  min-width: 1.25rem !important;
+  min-height: 1.25rem !important;
+  border: 2px solid #d1d5db !important;
+  border-radius: 0 !important;
+  background-color: #ffffff !important;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.15s ease-in-out;
+  flex-shrink: 0;
+}
+
+.dark input[type="checkbox"] {
+  border-color: #4b5563 !important;
+  background-color: #1f2937 !important;
+}
+
+input[type="checkbox"]:hover {
+  border-color: #10b981 !important;
+  background-color: #f9fafb !important;
+}
+
+.dark input[type="checkbox"]:hover {
+  background-color: #374151 !important;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #10b981 !important;
+  border-color: #10b981 !important;
+}
+
+input[type="checkbox"]:checked::after {
+  content: '' !important;
+  position: absolute !important;
+  left: 5px !important;
+  top: 2px !important;
+  width: 5px !important;
+  height: 9px !important;
+  border: solid #ffffff !important;
+  border-width: 0 2px 2px 0 !important;
+  transform: rotate(45deg) !important;
+}
+
+input[type="checkbox"]:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.3) !important;
+}
+
+input[type="checkbox"]:disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed;
+}
+
+/* Mobile responsive utilities */
+@media (max-width: 768px) {
+  .mobile-hidden {
+    display: none !important;
+  }
+  .mobile-full-width {
+    width: 100% !important;
+  }
+}
+
+/* Skeleton loading animation */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(90deg, #e5e7eb 25%, #f3f4f6 50%, #e5e7eb 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+.dark .skeleton-shimmer {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+  background-size: 200% 100%;
+}
+
+/* Toast notifications */
+.toast-container {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .toast-container {
+    bottom: 24px;
+    right: 24px;
+    left: auto;
+    transform: none;
+  }
+}
+
+.toast {
+  pointer-events: auto;
+  padding: 12px 16px;
+  border-radius: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: toast-in 0.3s ease-out;
+  max-width: 90vw;
+}
+
+@media (min-width: 768px) {
+  .toast { max-width: 400px; }
+}
+
+.toast-success { background-color: #065f46; color: white; }
+.toast-error { background-color: #991b1b; color: white; }
+.toast-warning { background-color: #92400e; color: white; }
+.toast-info { background-color: #1e40af; color: white; }
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Offline indicator */
+.offline-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #92400e;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  font-size: 14px;
+  z-index: 9999;
+  animation: slide-down 0.3s ease-out;
+}
+
+@keyframes slide-down {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Signature canvas */
+.signature-canvas {
+  touch-action: none;
+  cursor: crosshair;
+}
+
+/* Signature field overlays */
+.signature-field-overlay {
+  position: absolute;
+  cursor: move;
+  transition: box-shadow 0.15s ease;
+}
+.signature-field-overlay:hover {
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.5);
+}
+.signature-field-overlay.client-field:hover {
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+
+/* Pulsing border for unsigned fields */
+@keyframes pulse-border {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+.signature-field-unsigned {
+  animation: pulse-border 2s ease-in-out infinite;
+}
+
+/* Scanning animation */
+@keyframes scan-line {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
+.scan-line {
+  animation: scan-line 2s ease-in-out infinite;
+}
